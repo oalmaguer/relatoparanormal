@@ -1,0 +1,29 @@
+.globStyle {
+    background-image: linear-gradient(to right, #870000 0%, #190A05  51%, #870000  100%)
+}
+
+.grid {
+    display: grid;
+    height: 100vh;
+    // border: 1px solid yellow;
+    align-items: center;
+}
+
+.title {
+    font-size: 1em;
+    font-family: "Helvetica Neue",Helvetica,Arial;
+    box-sizing: border-box;
+    color: white;
+    justify-self: center;
+    width: 25%;
+    display: grid;
+    align-self: start;
+    // border: 1px solid yellow;
+}
+
+.escribe {
+    // border: 1px solid yellow;
+    height: 10vh;
+    color: white;
+
+}

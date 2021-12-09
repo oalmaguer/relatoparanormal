@@ -1,0 +1,21 @@
+.globStyle {
+  height: 100vh;
+  background-image: linear-gradient(
+    94.3deg,
+    rgba(26, 33, 64, 1) 10.9%,
+    rgba(81, 84, 115, 1) 87.1%
+  );
+  color: white;
+}
+
+.inputForm {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.inputForm input {
+  width: 50%;
+  grid-column: 2/3;
+  justify-self: center;
+}

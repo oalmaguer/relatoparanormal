@@ -1,62 +1,64 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { SendStoryService } from './send-story.service';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {environment} from '../../environments/environment';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
+import { Relato } from '../interface/story.interface';
 
 @Component({
   selector: 'app-write-story',
   templateUrl: './write-story.component.html',
-  styleUrls: ['./write-story.component.scss']
+  styleUrls: ['./write-story.component.scss'],
 })
 export class WriteStoryComponent implements OnInit {
   writeForm: FormGroup;
-  types: Array<string> = ['Aliens', 'Fantasmas', 'Mutantes']
-  headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+  types: Array<string> = ['Aliens', 'Fantasmas', 'Mutantes'];
+  headers = new HttpHeaders().set(
+    'Content-Type',
+    'application/json; charset=utf-8'
+  );
+  response: any;
 
-
-  constructor(private storyService: SendStoryService,
+  constructor(
+    private storyService: SendStoryService,
     private http: HttpClient,
-    private router: Router) { }
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.writeForm = new FormGroup({
-      author: new FormControl(""),
-      story: new FormControl(""),
-      type: new FormControl("Aliens")
-    })
+      author: new FormControl(''),
+      story: new FormControl(''),
+      type: new FormControl('Aliens'),
+    });
 
     this.onChanges();
   }
 
   onChanges() {
-    this.writeForm.get('author').valueChanges.subscribe(value => {
-    })
-    
-    this.writeForm.get('type').valueChanges.subscribe(value => {
-    })
+    this.writeForm.get('author').valueChanges.subscribe((value) => {});
 
-    this.writeForm.get('story').valueChanges.subscribe(value => {
-    })
+    this.writeForm.get('type').valueChanges.subscribe((value) => {});
+
+    this.writeForm.get('story').valueChanges.subscribe((value) => {});
   }
 
   onSubmit() {
     //write to database
 
-    this.http.post(`${environment.nodeEndpoint}/relatos/add`, this.writeForm.value,  {responseType : 'text' })
-    .subscribe(elem => {
-      console.log(elem);
-      this.navigate();
-      this.router.navigate(['post/1'])
-    },
-    err => console.log(err));
+    this.http
+      .post(`${environment.nodeEndpoint}/relatos/add`, this.writeForm.value, {
+        responseType: 'json',
+      })
+      .subscribe(
+        (elem) => {
+          this.response = elem;
+          console.log(elem);
+          this.router.navigate([`/post/${this.response._id}`]);
+        },
+        (err) => console.log(err)
+      );
     // this.storyService.stories$.next(this.writeForm.value);
   }
-
-  navigate() {
-    console.log()
-  }
-
-
 }

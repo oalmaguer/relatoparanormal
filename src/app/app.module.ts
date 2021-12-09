@@ -8,6 +8,9 @@ import { WriteStoryComponent } from './write-story/write-story.component';
 import { PostDetailComponent } from './post-detail-component/post-detail-component.component';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 
 @NgModule({
@@ -15,7 +18,10 @@ import {HttpClientModule} from '@angular/common/http';
     AppComponent,
     HomepageComponent,
     WriteStoryComponent,
-    PostDetailComponent
+    PostDetailComponent,
+    RegisterComponent,
+    LoginComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,

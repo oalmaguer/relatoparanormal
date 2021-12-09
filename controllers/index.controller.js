@@ -5,8 +5,8 @@ indexCtrl.createStory = async (req, res) => {
   //   const { author, type, story } = req.body;
   console.log(req.body);
   const newStory = new Relato(req.body);
-  await newStory.save();
-  res.send("Your Story has been created!");
+  const savedStory = await newStory.save();
+  res.send(savedStory);
 };
 
 indexCtrl.getAllStories = async (req, res) => {

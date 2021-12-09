@@ -1,0 +1,10 @@
+<div class="container text-center mainctn p-5" *ngIf="currentUser">
+  <h1>User: {{ currentUser.user }}</h1>
+  <h3>Email: {{ currentUser.email }}</h3>
+  <p>Created at: {{ currentUser.createdAt }}</p>
+  <hr />
+
+  <a href="/">
+    <button class="btn btn-primary">Go back</button>
+  </a>
+</div>

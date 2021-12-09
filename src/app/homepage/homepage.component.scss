@@ -46,8 +46,8 @@
   gap: 3rem;
 }
 
-.card-body:hover {
-  background-color: #979797;
+.card-body a {
+  color: #9d282d;
 }
 
 .card-body p {
@@ -96,7 +96,7 @@
 
 .grid-2 > div {
   border-radius: 6px;
-  background: lightgray;
+  background: white;
   height: auto;
 }
 

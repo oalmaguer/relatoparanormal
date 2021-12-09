@@ -1,33 +1,34 @@
 <div class="globstyle">
-    <div class="fondo">
-
+  <div class="fondo">
     <nav class="navbar">
-        <a class="navbar-brand" routerLink="/">
-            👻Relato Paranormal👽
-        </a>
-      </nav>
-<div class="grid-1">
-    <div class="grid-1-col1">
+      <a class="navbar-brand" routerLink="/"> 👻Relato Paranormal👽 </a>
+      <a class="navbar-brand" routerLink="/register"> 👻Registrarse👽 </a>
+      <a class="navbar-brand" routerLink="/login"> Iniciar Sesión </a>
+    </nav>
+    <div class="grid-1">
+      <div class="grid-1-col1">
         <h1 class="text-center">Relato Paranormal</h1>
         <p class="text-center">Bienvenido a un mundo de terror.</p>
-        <a href="#historias"><button class="btn-grad">Leer Historias</button></a>
-        <a routerLink="/write"><button class="btn-grad2">Escribir Historia</button></a>
+        <a href="#historias"
+          ><button class="btn-grad">Leer Historias</button></a
+        >
+        <a routerLink="/write"
+          ><button class="btn-grad2">Escribir Historia</button></a
+        >
+      </div>
     </div>
-</div>
-</div>
+  </div>
 
+  <h1 class="leerHistorias text-center m-5">~Leer Historias~</h1>
 
-<h1 class="leerHistorias text-center m-5">~Leer Historias~</h1>
-
-<div id="historias" class="grid-2 text-center">
-    <div class="card" *ngFor="let item of stories;">
-        <div class="card-body">
-            <h5 class="card-title">Autor: {{item.author}}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Tipo: {{item.type}}</h6>
-            <p class="card-text">{{item.story}}</p>
-            <a routerLink="/post/{{item._id}}" class="card-link">Leer historia completa</a>
-          </div>
+  <div id="historias" class="grid-2 text-center">
+    <div class="card" *ngFor="let item of stories">
+      <div class="card-body">
+        <h5 class="card-title">Autor: {{ item.author }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Tipo: {{ item.type }}</h6>
+        <p class="card-text">{{ item.story }}</p>
+        <a routerLink="/post/{{ item._id }}">Leer historia completa</a>
+      </div>
     </div>
-</div>
-
+  </div>
 </div>

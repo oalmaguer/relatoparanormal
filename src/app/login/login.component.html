@@ -1,0 +1,32 @@
+<div class="globStyle">
+  <nav class="navbar">
+    <a class="navbar-brand" routerLink="/"> 👻Relato Paranormal👽 </a>
+  </nav>
+  <div>
+    <form [formGroup]="loginForm">
+      <h1 class="escribe text-center">Inicia Sesión!👽</h1>
+      <div class="title text-center">
+        <div class="inputForm">
+          <input
+            formControlName="email"
+            class="p-2 m-3"
+            type="text"
+            placeholder="Correo o Usuario"
+            name="email"
+          />
+
+          <input
+            formControlName="password"
+            class="p-2 m-3"
+            type="password"
+            placeholder="Contraseña"
+            name="password"
+          />
+        </div>
+        <button (click)="onSubmit()" class="btn btn-success mt-2">
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

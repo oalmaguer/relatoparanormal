@@ -1,6 +1,13 @@
-
+<nav class="navbar bg-dark">
+  <a class="navbar-brand" routerLink="/"> 👻Relato Paranormal👽 </a>
+  <div *ngIf="!user">
+    <a class="navbar-brand" routerLink="/register"> 👻Registrarse👽 </a>
+    <a class="navbar-brand" routerLink="/login"> Iniciar Sesión </a>
+  </div>
+  <div *ngIf="user">
+    <a class="navbar-brand" (click)="logout()"> Logout </a>
+  </div>
+</nav>
 <router-outlet></router-outlet>
 
-
 <!-- <app-homepage></app-homepage> -->
-

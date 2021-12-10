@@ -9,8 +9,6 @@ passport.use(
       passwordField: "password",
     },
     async (email, password, done) => {
-      console.log("=============");
-
       //Si existe correo de usuario
       const user = await User.findOne({ email });
       if (!user) {

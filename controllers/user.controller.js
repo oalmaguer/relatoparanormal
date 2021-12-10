@@ -4,7 +4,6 @@ const ObjectId = require("mongodb").ObjectId;
 const passport = require("passport");
 
 usersCtrl.signup = async (req, res) => {
-  console.log(req.body);
   const { user, password, confirmPassword, email } = req.body;
   if (password !== confirmPassword) {
     res.send("ERROOOR");
@@ -31,5 +30,10 @@ usersCtrl.login = passport.authenticate("local", {
   failureRedirect: "/user/fail",
   successRedirect: "/user/success",
 });
+
+usersCtrl.logout = (req, res) => {
+  req.logout();
+  res.redirect("/user/success");
+};
 
 module.exports = usersCtrl;

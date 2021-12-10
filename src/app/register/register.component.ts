@@ -43,7 +43,6 @@ export class RegisterComponent implements OnInit {
         }
       )
       .subscribe((elem) => {
-        console.log(elem);
         if (elem) {
           this.createdUser = elem;
           Swal.fire({

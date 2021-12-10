@@ -5,6 +5,7 @@ import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
 import Swal from 'sweetalert2';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,11 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loggedUser;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private auth: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -31,9 +36,9 @@ export class LoginComponent implements OnInit {
       })
       .pipe(catchError(async (err) => console.log(err)))
       .subscribe((elem) => {
-        console.log(elem);
         if (elem[0].status === 'success') {
           this.loggedUser = elem;
+          this.auth.setItem('true');
           Swal.fire({
             title: 'Success!',
             text: 'Login successful',
@@ -41,9 +46,10 @@ export class LoginComponent implements OnInit {
             timer: 3000,
           });
           setTimeout(() => {
-            this.router.navigate([`/login`]);
+            this.router.navigate([`/`]);
           }, 3000);
         } else {
+          this.auth.setItem(null);
           Swal.fire({
             title: 'Error!',
             text: 'Incorrect password or username',

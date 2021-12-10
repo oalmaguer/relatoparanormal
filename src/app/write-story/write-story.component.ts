@@ -5,6 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
 import { Relato } from '../interface/story.interface';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-write-story',
@@ -19,11 +20,13 @@ export class WriteStoryComponent implements OnInit {
     'application/json; charset=utf-8'
   );
   response: any;
+  isLoggedIn;
 
   constructor(
     private storyService: SendStoryService,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private auth: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -31,6 +34,10 @@ export class WriteStoryComponent implements OnInit {
       author: new FormControl(''),
       story: new FormControl(''),
       type: new FormControl('Aliens'),
+    });
+
+    this.auth.logged$.subscribe((elem) => {
+      this.isLoggedIn = elem;
     });
 
     this.onChanges();
@@ -54,7 +61,6 @@ export class WriteStoryComponent implements OnInit {
       .subscribe(
         (elem) => {
           this.response = elem;
-          console.log(elem);
           this.router.navigate([`/post/${this.response._id}`]);
         },
         (err) => console.log(err)

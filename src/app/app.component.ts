@@ -29,6 +29,7 @@ export class AppComponent {
         if (data[0].status == 'success') {
           this.user = null;
           this.auth.setItem(null);
+          localStorage.clear();
         }
       });
   }

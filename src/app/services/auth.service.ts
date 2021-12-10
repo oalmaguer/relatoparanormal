@@ -11,6 +11,7 @@ export class AuthService {
   logged$ = new BehaviorSubject(this.getItem());
 
   setItem(value) {
+    console.log('hola soy la kim');
     console.log('setitem', value);
     this.logged$.next(value);
     localStorage.setItem('loggedIn', value);

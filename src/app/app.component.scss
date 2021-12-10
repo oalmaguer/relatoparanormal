@@ -2,7 +2,22 @@
   color: #fff;
 }
 
+.navbar-brand:hover {
+  animation: grow 0.25s;
+  animation-fill-mode: forwards;
+  box-shadow: rgba(46, 195, 240, 0.4) 5px 5px, rgba(46, 185, 240, 0.3) 10px 10px,
+    rgba(46, 233, 240, 0.2) 15px 15px, rgba(46, 169, 240, 0.1) 20px 20px,
+    rgba(240, 46, 170, 0.05) 25px 25px;
+}
+
 a {
   color: white !important;
   cursor: pointer;
+}
+
+footer {
+  font-family: "Scope One", serif;
+  padding: 2rem;
+  color: white;
+  background-color: #0a1a2c !important;
 }

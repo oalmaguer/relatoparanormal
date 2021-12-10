@@ -1,3 +1,11 @@
+<!-- //fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Scope+One&display=swap"
+  rel="stylesheet"
+/>
+
 <div class="globstyle">
   <div class="fondo">
     <div class="grid-1">
@@ -5,10 +13,10 @@
         <h1 class="text-center">Relato Paranormal</h1>
         <p class="text-center">Bienvenido a un mundo de terror.</p>
         <a href="#historias"
-          ><button class="btn-grad">Leer Historias</button></a
+          ><button class="button-74">Leer Historias</button></a
         >
         <a routerLink="/write"
-          ><button class="btn-grad2">Escribir Historia</button></a
+          ><button class="button-74 button-75">Escribir Historia</button></a
         >
       </div>
     </div>
@@ -22,7 +30,9 @@
         <h5 class="card-title">Autor: {{ item.author }}</h5>
         <h6 class="card-subtitle mb-2 text-muted">Tipo: {{ item.type }}</h6>
         <p class="card-text">{{ item.story }}</p>
-        <a routerLink="/post/{{ item._id }}">Leer historia completa</a>
+        <a routerLink="/post/{{ item._id }}"
+          ><strong>Leer historia completa</strong></a
+        >
       </div>
     </div>
   </div>

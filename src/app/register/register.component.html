@@ -1,44 +1,46 @@
 <div class="globStyle">
   <div>
-    <form [formGroup]="registerForm">
-      <h1 class="escribe text-center">Registrate!👻</h1>
-      <div class="title text-center">
-        <div class="inputForm">
-          <input
-            formControlName="user"
-            class="p-2 m-3"
-            type="text"
-            placeholder="Usuario"
-          />
+    <form [formGroup]="registerForm" class="formGood">
+      <div class="styleForm">
+        <h1 class="escribe text-center">Registrate!👻</h1>
+        <div class="title text-center">
+          <div class="inputForm">
+            <input
+              formControlName="user"
+              class="p-2 m-3"
+              type="text"
+              placeholder="Usuario"
+            />
 
-          <input
-            formControlName="password"
-            class="p-2 m-3"
-            type="password"
-            placeholder="Contraseña"
-          />
+            <input
+              formControlName="password"
+              class="p-2 m-3"
+              type="password"
+              placeholder="Contraseña"
+            />
 
-          <input
-            formControlName="confirmPassword"
-            class="p-2 m-3"
-            type="password"
-            placeholder="Confirmar Contraseña"
-          />
+            <input
+              formControlName="confirmPassword"
+              class="p-2 m-3"
+              type="password"
+              placeholder="Confirmar Contraseña"
+            />
 
-          <input
-            formControlName="email"
-            class="p-2 m-3"
-            type="text"
-            placeholder="Correo"
-          />
+            <input
+              formControlName="email"
+              class="p-2 m-3"
+              type="text"
+              placeholder="Correo"
+            />
+          </div>
+          <button
+            [disabled]="registerForm.invalid"
+            (click)="onSubmit()"
+            class="btn btn-success mt-2"
+          >
+            Submit
+          </button>
         </div>
-        <button
-          [disabled]="registerForm.invalid"
-          (click)="onSubmit()"
-          class="btn btn-success mt-2"
-        >
-          Submit
-        </button>
       </div>
     </form>
   </div>

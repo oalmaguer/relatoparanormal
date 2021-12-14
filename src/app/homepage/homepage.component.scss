@@ -2,13 +2,16 @@
   background: #0a1a2c; /* fallback for old browsers */
   font-family: "Scope One", serif;
 }
-.grid-1 {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1em;
+
+.fondo {
   height: 100vh;
+  background-size: cover;
+  background-image: url(../images/backgroundtop.jpg);
 }
 
+.mainTitle {
+  font-size: 4rem;
+}
 .navbar {
   background-color: transparent;
 }
@@ -18,10 +21,12 @@
   font-size: 1.5rem;
 }
 
-.fondo {
+.grid-1 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1em;
+  justify-content: center;
   height: 100vh;
-  background-size: cover;
-  background-image: url(../images/backgroundtop.jpg);
 }
 
 .grid-1 > div {
@@ -31,7 +36,6 @@
 }
 
 .grid-1-col1 {
-  display: grid;
   width: 25%;
   color: white;
   grid-column: 1/3;
@@ -100,7 +104,17 @@
   -webkit-line-clamp: 4;
 }
 
-@media (max-width: 911px) {
+@media (max-width: 1290px) {
+  .grid-2 {
+    margin-top: 2em;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(100px, 250px);
+    padding: 1rem;
+    gap: 3rem;
+  }
+}
+@media (max-width: 1200px) {
   .grid-2 {
     margin-top: 2em;
     display: grid;
@@ -111,20 +125,42 @@
   }
 }
 
-@media (max-width: 809px) {
-  .card-body p {
-    width: 100%;
-    overflow: hidden;
-
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
+@media (max-width: 992px) {
+  .card-body {
+    padding: 0.5rem;
   }
+}
 
+@media (max-width: 768px) {
   .grid-2 {
     margin-top: 2em;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-auto-rows: minmax(100px, 250px);
+    padding: 1rem;
+    gap: 3rem;
+  }
+}
+@media (max-width: 576px) {
+  .grid-2 {
+    margin-top: 2em;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-auto-rows: minmax(100px, 250px);
+    padding: 1rem;
+    gap: 3rem;
+  }
+
+  .card-body {
+    padding: 0.2rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .grid-2 {
+    margin-top: 2em;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr) !important;
     grid-auto-rows: minmax(100px, 250px);
     padding: 1rem;
     gap: 3rem;
@@ -237,9 +273,24 @@
   transform: translate(2px, 2px);
 }
 
-@media (min-width: 768px) {
+@media (max-width: 960px) {
+  .grid-1-col1 {
+    width: 50%;
+  }
+}
+
+@media (max-width: 576px) {
+  .grid-1-col1 {
+    width: auto;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 960px) {
   .button-74 {
     min-width: 120px;
     padding: 0 25px;
+    width: 100%;
+    font-size: 0.8rem;
   }
 }
